@@ -1,0 +1,24 @@
+
+/* KNOWN INTERRUPTS */
+
+
+ISR(TCC0_OVF_vect)
+	library: SOFTROBOTmain.cpp
+	frequency: 1000 Hz
+	purpose: milliseconds counter
+
+ISR(TCE0_OVF_vect)
+	library: SRpressure_control.c
+	frequency: 125 Hz
+	purpose: service actuators, measure central pressure
+	
+ISR(RTC_OVF_vect)	**AVAILABLE**
+	library: software_clock.c	(commented out) 
+
+ISR(PORTB_INT0_vect)
+	library: SRaccelerometer.c
+	purpose: interrupt function for PCB mounted accelerometer
+	
+ISR(PORTC_INT0_vect)
+	library: SRbuttons.c
+	purpose: interrupt function for buttons
